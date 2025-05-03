@@ -2715,6 +2715,15 @@
         "query": "Optimize for maximum hydrogen yield"
       },
       "timestamp": "2025-05-03T17:10:57.191Z"
+    },
+    {
+      "query": "Calculate CapEx for a 100 kg/day plant",
+      "result": {
+        "h2_production": 2.9725645,
+        "model_used": "temp_press_h2",
+        "query": "Predict H\u2082 production at 800\u00b0C and 15 bar"
+      },
+      "timestamp": "2025-05-03T17:18:57.638Z"
     }
   ]
 }
