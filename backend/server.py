@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Query
+from fastapi import FastAPI, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
 from predictor import predict_h2, predict_lcoh, plot_trend, compare_parameters, sensitivity_analysis
 from optimizer import optimize
@@ -17,10 +17,11 @@ app = FastAPI(title="H₂ Production Analyzer API",
              description="API for hydrogen production prediction and economic analysis",
              version="2.0.0")
 
-# Allow all CORS origins, methods, and headers
+# Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:3000", "https://hydrogen-production-analyzer.windsurf.build"],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )

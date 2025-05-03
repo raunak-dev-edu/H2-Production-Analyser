@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: hydrogen-analyzer-api
+    runtime: python
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: cd backend && python -m gunicorn -k uvicorn.workers.UvicornWorker server:app --timeout 60
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.7
+    plan: free
