@@ -5,8 +5,13 @@ import matplotlib.pyplot as plt
 from io import BytesIO
 import os
 
-# Updated path to models directory
-MODEL_DIR = "../ml/models"
+# Updated path to models directory - use local models directory for deployment
+MODEL_DIR = os.path.join(os.path.dirname(__file__), "models")
+if not os.path.exists(MODEL_DIR):
+    # Fallback to relative path if local directory doesn't exist
+    MODEL_DIR = os.path.join(os.path.dirname(__file__), "../ml/models")
+    if not os.path.exists(MODEL_DIR):
+        print(f"Warning: Neither local models directory nor ../ml/models directory exists!")
 
 # Load model with proper error handling
 def load_model(name):
